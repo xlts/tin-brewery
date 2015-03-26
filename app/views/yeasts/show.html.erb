@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @yeast.name %>
+</p>
+
+<p>
+  <strong>Floc rate:</strong>
+  <%= @yeast.floc_rate %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @yeast.country.name %>
+</p>
+
+<%= link_to 'Edit', edit_yeast_path(@yeast) %> |
+<%= link_to 'Back', yeasts_path %>

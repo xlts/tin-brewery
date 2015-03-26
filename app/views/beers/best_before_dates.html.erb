@@ -1,0 +1,16 @@
+<h1> Best-before dates </h1>
+
+  <tbody>
+    <% @beers.each do |beer| %>
+      <tr>
+        <td><%= beer.name %></td>
+        <td><%= beer.abv %></td>
+        <td><%= beer.malt.name %></td>
+        <td><%= beer.hop.name %></td>
+        <td><%= beer.yeast.name %></td>
+        <td><%= link_to 'Show', beer %></td>
+        <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
+        <td><%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>

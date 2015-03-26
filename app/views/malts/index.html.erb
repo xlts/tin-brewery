@@ -1,0 +1,29 @@
+<h1>Listing malts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Ebc</th>
+      <th>Country</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @malts.each do |malt| %>
+      <tr>
+        <td><%= malt.name %></td>
+        <td><%= malt.ebc %></td>
+        <td><%= malt.country.name %></td>
+        <td><%= link_to 'Show', malt %></td>
+        <td><%= link_to 'Edit', edit_malt_path(malt) %></td>
+        <td><%= link_to 'Destroy', malt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Malt', new_malt_path %>

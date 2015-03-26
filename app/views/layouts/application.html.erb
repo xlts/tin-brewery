@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Brewery</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application"  %>
+  <%= csrf_meta_tag %>
+ 
+</head>
+
+
+<body>
+
+<div id="user_nav">
+  <% if current_user %>
+    Logged in as <i> <b> <%= current_user.email %> </b> </i>
+    <%= link_to "Log out", log_out_path %>
+  <% else %>
+    <%= link_to "Sign up", sign_up_path %> or 
+    <%= link_to "Log in", log_in_path %>
+  <% end %>
+  
+    <% flash.each do |name, msg| %>
+		<%= content_tag :div, msg, :id => "flash#{name}" %>
+    <% end %>
+  
+</div>
+
+<div id="pick_color_scheme">
+
+	<button id="button_yellow" />
+	<button id="button_blue" />
+	<button id="button_red" />
+
+</div>
+
+<br />
+
+<div id="banner">
+<%= image_tag 'banner.jpg' %>
+
+</div>
+
+<br />
+
+
+
+<div id="tables_nav">
+
+	<% if current_user %>
+		<%= link_to "beers", beers_path %>
+		<%= link_to "malts", malts_path %>
+		<%= link_to "hops", hops_path %>
+		<%= link_to "yeast", yeasts_path %>
+		<%= link_to "orders", orders_path %>
+		<%= link_to "customers", customers_path %>
+		<%= link_to "countries", countries_path %>
+	<% end %>
+
+</div>
+
+
+
+
+
+
+
+
+
+<%= yield %>
+
+</body>
+</html>
+
